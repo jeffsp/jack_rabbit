@@ -121,6 +121,13 @@ void test_ctor ()
     pyramid<double> t (s, 4);
     VERIFY (t.levels () == 4);
     VERIFY (t[0][0] == 1);
+    pyramid<double> u (100, 100, 5, 1);
+    VERIFY (u.levels () == 5);
+    VERIFY (u.bottom ().front () == 1);
+    VERIFY (u.top ().back () == 1);
+    u.resize (200, 200, 6, 2);
+    VERIFY (u.bottom ().front () == 1);
+    VERIFY (u.top ().back () == 2);
 }
 
 // Instantiate with different types

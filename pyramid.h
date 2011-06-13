@@ -753,6 +753,15 @@ class pyramid
     {
         resize (rows, cols, v);
     }
+    /// @brief Size constructor
+    /// @param rows number of rows in base raster
+    /// @param cols number of columns in base raster
+    /// @param levels number of levels in pyramid
+    /// @param v initialization value
+    pyramid (size_type rows, size_type cols, size_type levels, const T &v)
+    {
+        resize (rows, cols, levels, v);
+    }
     /// @brief Copy constructor
     /// @param p pyramid to copy
     pyramid (const pyramid<T,M> &p)
@@ -814,6 +823,21 @@ class pyramid
     void resize (size_type rows, size_type cols, const T &v = T ())
     {
         size_type levels = get_levels (rows, cols);
+        m_.resize (levels);
+        for (size_type l = 0; l < levels; ++l)
+        {
+            m_[l].resize (rows, cols, v);
+            rows = (rows + 1) / 2;
+            cols = (cols + 1) / 2;
+        }
+    }
+    /// @brief Change base image size
+    /// @param rows number of rows in base image
+    /// @param cols number of columns in base image
+    /// @param levels number of levels in pyramid
+    /// @param v initialization value
+    void resize (size_type rows, size_type cols, size_type levels, const T &v)
+    {
         m_.resize (levels);
         for (size_type l = 0; l < levels; ++l)
         {
