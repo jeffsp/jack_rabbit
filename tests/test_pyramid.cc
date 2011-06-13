@@ -117,6 +117,10 @@ void test_ctor ()
     r.swap (q);
     VERIFY (r.levels () == 5);
     VERIFY (q.empty ());
+    raster<double> s (100, 100, 1);
+    pyramid<double> t (s, 4);
+    VERIFY (t.levels () == 4);
+    VERIFY (t[0][0] == 1);
 }
 
 // Instantiate with different types
