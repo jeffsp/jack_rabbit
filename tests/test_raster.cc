@@ -64,6 +64,10 @@ void test_constructors ()
     VERIFY (g.size () == ROWS * COLS);
     VERIFY (g.front () == 9);
     VERIFY (g.back () == 9);
+    raster<T> h (ROWS*COLS);
+    VERIFY (h.size () == ROWS*COLS);
+    VERIFY (h.rows () == ROWS*COLS);
+    VERIFY (h.cols () == 1);
 }
 
 template<typename T,size_t ROWS,size_t COLS>

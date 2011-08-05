@@ -90,6 +90,13 @@ class raster
         const allocator_type &a = allocator_type ())
         : rows_ (rows), cols_ (cols), cont_ (rows * cols, v, a)
     { }
+    /// @brief Size constructor
+    /// @param sz number of rows in raster (cols will equal 1)
+    /// @param a optional custom allocator
+    raster (size_type sz,
+        const allocator_type &a = allocator_type ())
+        : rows_ (sz), cols_ (1), cont_ (sz, T (), a)
+    { }
     /// @brief Copy constructor
     /// @param rows number of rows in c
     /// @param cols number of columns in c
