@@ -25,11 +25,9 @@
 
 all:
 	$(MAKE) -C reduce
-	$(MAKE) -C foveate
 
 check:
 	$(MAKE) -C reduce check
 
 clean:
 	$(MAKE) -C reduce clean
-	$(MAKE) -C foveate clean
