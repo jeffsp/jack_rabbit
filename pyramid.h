@@ -703,7 +703,7 @@ inline void expand3x3 (const Src &src, Dest &dest, unsigned jitter)
         CopyRow (dest, dest.rows () - 2, dest.rows () - 1);
 }
 
-/// Pyramidal container of images
+/// @brief pyramid image container
 ///
 /// Implements a multi-resolution pyramid.  The base of the
 /// pyramid contains a high resolution image.  Higher levels
