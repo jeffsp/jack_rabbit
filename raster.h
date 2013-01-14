@@ -1,8 +1,8 @@
-// Raster Container Adapter
-//
-// Copyright (C) 2003-2012 Jeffrey S. Perry
-//
-// contact: jeffsp@gmail.com
+/// @file raster.h
+/// @brief raster container adapter
+/// @author Jeff Perry <jeffsp@gmail.com>
+/// @version 1.0
+/// @date 2013-01-14
 
 #ifndef RASTER_HPP
 #define RASTER_HPP

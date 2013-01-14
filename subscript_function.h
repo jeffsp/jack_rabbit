@@ -1,8 +1,8 @@
-// Functions that use raster subscripts
-//
-// Copyright (C) 2003-2012 Jeffrey S. Perry
-//
-// contact: jeffsp@gmail.com
+/// @file subscript_function.h
+/// @brief functions that use raster subscripts
+/// @author Jeff Perry <jeffsp@gmail.com>
+/// @version 1.0
+/// @date 2013-01-14
 
 #ifndef SUBSCRIPT_FUNCTION_HPP
 #define SUBSCRIPT_FUNCTION_HPP

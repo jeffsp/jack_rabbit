@@ -1,24 +1,8 @@
-// Raster Example
-//
-// Copyright (C) 2007 Jeffrey S. Perry
-//
-// This program is free software: you can redistribute it
-// and/or modify it under the terms of the GNU General
-// Public License as published by the Free Software
-// Foundation, either version 3 of the License, or (at your
-// option) any later version.
-//
-// This program is distributed in the hope that it will be
-// useful, but WITHOUT ANY WARRANTY; without even the
-// implied warranty of MERCHANTABILITY or FITNESS FOR A
-// PARTICULAR PURPOSE.  See the GNU General Public License
-// for more details.
-//
-// You should have received a copy of the GNU General Public
-// License along with this program.  If not, see
-// <http://www.gnu.org/licenses/>.
-//
-// contact: jeffsp@gmail.com
+/// @file raster_example0.cc
+/// @brief raster example
+/// @author Jeff Perry <jeffsp@gmail.com>
+/// @version 1.0
+/// @date 2013-01-14
 
 #include "raster.h"
 #include "subscript_function.h"
@@ -90,7 +74,8 @@ int main ()
 
         raster<int> b (5, 6);
         subregion s = { 1, 2, 3, 3 };
-        for_each (b.begin (s), b.end (s), _1 = 4);
+        for (auto i = b.begin (s); i != b.end (s); ++i)
+            *i = 4;
         cout << b;
         //   0   0   0   0   0   0
         //   0   0   4   4   4   0
@@ -99,10 +84,9 @@ int main ()
         //   0   0   0   0   0   0
 
         raster<int> c (s.rows, s.cols);
-        c.front () = 1;
-        transform (c.begin (), c.end () - 1,
-            c.begin () + 1,
-            c.begin () + 1, _2 = _1 + 1);
+        int n = 0;
+        for (auto i = 0ul; i < c.size (); ++i)
+            c[i] = ++n;
         cout << c;
         //   1   2   3
         //   4   5   6

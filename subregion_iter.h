@@ -1,8 +1,8 @@
-// Subregion Iterator
-//
-// Copyright (C) 2003-2012 Jeffrey S. Perry
-//
-// contact: jeffsp@gmail.com
+/// @file subregion_iter.h
+/// @brief subregion iterator
+/// @author Jeff Perry <jeffsp@gmail.com>
+/// @version 1.0
+/// @date 2013-01-14
 
 #ifndef SUBREGION_ITER_HPP
 #define SUBREGION_ITER_HPP

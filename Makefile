@@ -1,6 +1,6 @@
 # Jack Rabbit Makefile
 #
-# Copyright (C) 2008-2012 Jeffrey S. Perry
+# Copyright (C) 2008-2013 Jeffrey S. Perry
 #
 # contact: jeffsp@gmail.com
 
@@ -14,17 +14,14 @@ QFLAGS="CONFIG+=debug"
 all:
 	$(MAKE) -C tests
 	$(MAKE) -C examples
-	$(MAKE) -C apps
 
 check: all
 	$(MAKE) -C tests check
 	$(MAKE) -C examples check
-	$(MAKE) -C apps check
 
 clean:
 	$(MAKE) -C tests clean
 	$(MAKE) -C examples clean clean_images
-	$(MAKE) -C apps clean
 	rm -rf doc
 
 doc: check
