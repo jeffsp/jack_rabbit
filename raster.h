@@ -441,7 +441,7 @@ class raster
         swap (tmp);
     }
 
-    /// @brief Compare two matrices
+    /// @brief Compare two rasters
     template<typename M,typename C>
     friend bool operator== (const raster<M,C> &a, const raster<M,C> &b);
 
@@ -451,7 +451,7 @@ class raster
     Cont cont_;
 };
 
-/// @brief Compare two matrices
+/// @brief Compare two rasters
 template<typename T,typename Cont>
 inline bool operator== (const raster<T,Cont> &a, const raster<T,Cont> &b)
 {
@@ -460,7 +460,7 @@ inline bool operator== (const raster<T,Cont> &a, const raster<T,Cont> &b)
         a.cont_ == b.cont_;
 }
 
-/// @brief Compare two matrices
+/// @brief Compare two rasters
 template<typename T,typename Cont>
 inline bool operator!= (const raster<T,Cont> &a, const raster<T,Cont> &b)
 {
