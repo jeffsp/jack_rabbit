@@ -4,8 +4,7 @@
 /// @version 1.0
 /// @date 2013-01-14
 
-#include "raster.h"
-#include "subscript_function.h"
+#include "jack_rabbit/jack_rabbit.h"
 #include <algorithm>
 #include <cmath>
 #include <numeric>
