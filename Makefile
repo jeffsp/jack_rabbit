@@ -1,13 +1,13 @@
 # Jack Rabbit Makefile
 #
-# Copyright (C) 2008-2013 Jeffrey S. Perry
+# Copyright (C) 2008-2014 Jeffrey S. Perry
 #
 # contact: jeffsp@gmail.com
 
 TARGET=jack_rabbit
 
 .SUFFIXES:
-.PHONY: all check clean doc release
+.PHONY: all check clean doc release install
 
 QFLAGS="CONFIG+=debug"
 
@@ -28,9 +28,9 @@ doc: check
 	$(MAKE) -C examples doc
 	doxygen $(TARGET).doxygen
 
-publish: doc
-	rm -rf ~/public_html/jack_rabbit_doc
-	cp -r doc/html ~/public_html/jack_rabbit_doc
-
 release:
 	$(MAKE) QFLAGS=\"CONFIG+=release\"
+
+install: release check
+	sudo mkdir -p /usr/local/include/jack_rabbit
+	sudo cp -a  *.h /usr/local/include/jack_rabbit
