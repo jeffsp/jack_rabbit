@@ -3,12 +3,12 @@
 
 CCFILES=$(shell ls -1 *.cc)
 TARGETS=$(basename $(CCFILES))
-INCLUDEPATH=..
-DEPENDPATH=..
+INCLUDEPATH=/home/jsp/Projects
+DEPENDPATH=/home/jsp/Projects
 EXTRA_SOURCES=
 LIBS=
 
-include ../../Makefile.examples
+include /home/jsp/Projects/Makefile.examples
 
 doc:
 	# Convert for use in documentation
