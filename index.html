@@ -97,12 +97,50 @@ Introduction</h2>
         <span class="comment">//   0   0   4   5   6   0</span>
         <span class="comment">//   0   0   7   8   9   0</span>
         <span class="comment">//   0   0   0   0   0   0</span>
+        b.insert_cols (b.loc (1, 1), 1, -1);
+        b.insert_rows (b.loc (1, 1), 2, -2);
+        cout &lt;&lt; b;
+        <span class="comment">//   0  -1   0   0   0   0</span>
+        <span class="comment">//  -2  -2  -2  -2  -2  -2</span>
+        <span class="comment">//  -2  -2  -2  -2  -2  -2</span>
+        <span class="comment">//   0  -1   1   2   3   0</span>
+        <span class="comment">//   0  -1   4   5   6   0</span>
+        <span class="comment">//   0  -1   7   8   9   0</span>
+        <span class="comment">//   0  -1   0   0   0   0</span>
+
+        <span class="comment">// Compute Manhattan distance from (0,0)</span>
+        raster&lt;size_t&gt; d (7, 5);
+        generate (d.begin (), d.end (),
+        subscript_generator&lt;size_t,ManhattanDistance&gt; (d.rows (), d.cols ()));
+        cout &lt;&lt; d;
+        <span class="comment">//   0   1   2   3   4</span>
+        <span class="comment">//   1   2   3   4   5</span>
+        <span class="comment">//   2   3   4   5   6</span>
+        <span class="comment">//   3   4   5   6   7</span>
+        <span class="comment">//   4   5   6   7   8</span>
+        <span class="comment">//   5   6   7   8   9</span>
+        <span class="comment">//   6   7   8   9  10</span>
+
+        <span class="comment">// Compute distance from center</span>
+        raster&lt;int&gt; e (9, 9, 1);
+        subscript_unary_function&lt;int,DistanceFromCenter&gt; f (e.rows (), e.cols ());
+        transform (e.begin (), e.end (), e.begin (), f);
+        cout &lt;&lt; e;
+        <span class="comment">//   5   5   4   4   4   4   4   5   5</span>
+        <span class="comment">//   5   4   3   3   3   3   3   4   5</span>
+        <span class="comment">//   4   3   2   2   2   2   2   3   4</span>
+        <span class="comment">//   4   3   2   1   1   1   2   3   4</span>
+        <span class="comment">//   4   3   2   1   0   1   2   3   4</span>
+        <span class="comment">//   4   3   2   1   1   1   2   3   4</span>
+        <span class="comment">//   4   3   2   2   2   2   2   3   4</span>
+        <span class="comment">//   5   4   3   3   3   3   3   4   5</span>
+        <span class="comment">//   5   5   4   4   4   4   4   5   5</span>
 </pre></div><p>If you want more dimensions, use boost MultiArray. </p>
 </div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 22 2014 20:57:31 for Jack Rabbit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 23 2014 09:59:56 for Jack Rabbit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
